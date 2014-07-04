@@ -25,7 +25,7 @@ post '/sign_up' do
   erb :survey_list
 end
 
-post 'login' do
+post '/login' do
   @user = User.find_by("email = ?", params[:email])
   if @user == nil
     erb :login
