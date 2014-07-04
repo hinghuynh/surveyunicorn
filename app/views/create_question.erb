@@ -1,0 +1,21 @@
+<container>
+
+  <form action="/user/<%=#{@user.id}%>/survey/<%=#{@survey.id}%>/create_question" method="post">
+    <input type="text" name="question_title" placeholder= "Survey Question">
+    <br>
+    <input type="text" name="question_answer1" placeholder= "Answer Choice 1">
+    <br>
+    <input type="text" name="question_answer2" placeholder= "Answer Choice 2">
+    <br>
+    <input type="text" name="question_answer3" placeholder= "Answer Choice 3">
+    <br>
+    <input type="text" name="question_answer4" placeholder= "Answer Choice 4">
+    <br>
+    <input type="submit" value="Make Me!">
+  </form>
+
+  <form action="/" method="get">
+      <input type="submit" value="All Done!">
+  </form>
+
+</container>
