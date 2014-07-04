@@ -1,11 +1,11 @@
 <container>
 
-  <form action="/user/<%=#{@user.id}%>/survey/<%=#{@survey.id}%>/question/<%=#{@question.id}%>/edit_survey" method="post">
+  <form action="/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=@question.id%>/edit_survey" method="post">
     <input type="text" name="question_title" placeholder= "<%=@question.content%>">
     <br>
     <% index = 1 %>
     <% @question.answers.each |answer| do %>
-      <input type="text" name="question_answer<%=#{index}%>" placeholder= "<%=answer.content%>">
+      <input type="text" name="question_answer<%=index%>" placeholder= "<%=answer.content%>">
       <br>
     <% index += 1 %>
     <% end %>

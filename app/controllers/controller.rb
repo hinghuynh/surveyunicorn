@@ -1,6 +1,7 @@
 get '/' do
   if logged_in?
     @user = current_user
+    @surveys = Survey.all
     erb :survey_list
   else
     erb :index
@@ -34,7 +35,7 @@ post '/login' do
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
     erb :survey_list
-  else 
+  else
     erb :login
   end
 end
@@ -53,12 +54,14 @@ post '/user/:id/create_survey' do
 end
 
 post '/user/:id/create_question' do
+  @user = User.find(params[:id])
   @survey = Survey.create(name: params[:survey_title], creator_id: params[:id])
   erb :create_question
 end
 
 post '/user/:user_id/survey/:survey_id/create_question' do
-  @survey = survey.find(params[:survey_id])
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
   question = Question.create(survey_id: params[:survey_id], content: params[:question_title])
   Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
   Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
@@ -68,7 +71,7 @@ post '/user/:user_id/survey/:survey_id/create_question' do
 end
 
 post '/user/:user_id/survey/:survey.id' do
-  @survey = survey.find(params[:survey_id])
+  @survey = Survey.find(params[:survey_id])
   @user = User.find(params[:id])
   erb :survey
 end

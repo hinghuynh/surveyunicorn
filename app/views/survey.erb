@@ -1,7 +1,7 @@
 <container>
 
   <h2><%= @survey.name %></h2>
-<form name = "survey" action = "/user/<%=#{user.id}%>/survey/<%=#{user.id}%>/save" method = "POST">
+<form name = "survey" action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/save" method = "POST">
 
     <% @survey.questions.each do |question| %>
       <%= question %>

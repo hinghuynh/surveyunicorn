@@ -1,20 +1,27 @@
-<center>
-  <h2>Welcome "#{@user.name}"</h2>
-  <h3>Which survey wopuld you like to take?</h3>
+<container>
+  <center>
+    <h2>Welcome <%=@user.name%></h2>
+    <h3>Which survey would you like to take?</h3>
 
-  <div class = "survery_links">
-    <ul>
-      <% @surveys.each do |survey| %>
-        <li><a href="/user/<%=#{@user.id}%>/survey/<%=#{@survey.id}%>"><%=#{@survey.name}%></a></li>
-      <%end%>
-    </ul>
+    <div class = "survery_links">
+      <ul>
+        <% if @surveys %>
+          <% @surveys.each do |survey| %>
+           <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>"><%=survey.name%></a></li>
+          <% end %>
+          <%else%>
+            <p>No Surveys Available</p>
+        <% end %>
+      </ul>
+    </div>
 
-  <form action="/user/<%#{@user.id}%>/create_survey" method="get">
-    <input type="submit" value="Create Survey">
-  </form>
+    <form action="/user/<%=@user.id%>/create_survey" method="post">
+      <input type="submit" value="Create Survey">
+    </form>
+    <br>
+    <form action="/sign_out" method="get">
+      <input type="submit" value="Iam Out!">
+    </form>
 
-  <form action="/sign_out" method="get">
-    <input type="submit" value="Iam Out!">
-  </form>
-
-</center>
+  </center>
+</container>
