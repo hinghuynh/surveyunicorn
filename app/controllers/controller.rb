@@ -55,3 +55,24 @@ post '/user/:id/create_question' do
   erb :create_question
 end
 
+post '/user/:user_id/survey/:survey_id/create_question' do
+  @survey = survey.find(params[:survey_id])
+  question = Question.create(survey_id: params[:survey_id], content: params[:question_title])
+  Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
+  Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
+  Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""
+  Answer.create(question_id: question.id, content: params[:question_answer4]) if params[:question_answer4] != ""
+  erb :create_question
+end
+
+
+
+
+
+
+
+
+
+
+
+
