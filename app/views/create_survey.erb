@@ -1,18 +1,30 @@
-<container>
-  <center>
-    <h2>Create your own survey!</h2>
-    <form action="/user/<%=@user.id%>/create_question" method="post">
-      <input type="text" name="survey_title" placeholder= "Survey Title">
-      <br>
-      <input type="submit" value="Begin">
-    </form>
+<div class="hero-unit">
     <br>
-    <form action="/" method="get">
-      <input type="submit" value="Go home">
-    </form>
-    <br>
-    <form action="/sign_out" method="get">
-      <input type="submit" value="Iam Out!">
-    </form>
-  </center>
- </container>
+<form class="form-horizontal" action="/user/<%=@user.id%>/create_question" method="post">
+  <h1>Create your own Survey!</h1>
+  <br>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Enter Title</label>
+    <div class="controls">
+      <input type="text" class="span6" name="survey_title" placeholder= "Survey Title">
+      <button type="submit" class="btn btn-info">Create Survey</button>
+    </div>
+  </div>
+  <br><br><br>
+  <form class="form-horizontal" action="/" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Go Home">
+      </div>
+    </div>
+  </form>
+
+  <form class="form-horizontal" action="/sign_out" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="I am out!">
+      </div>  
+    </div>
+  </form>
+  <br>
+</div>

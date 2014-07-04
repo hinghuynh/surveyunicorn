@@ -1,25 +1,53 @@
-<container>
+<br><br>
 
-  <center>
+<form class="form-horizontal" action="/user/<%=@user.id%>/survey/<%=@survey.id%>/create_question" method="post">
+ 
+<div class="control-group success">
+  <label class="control-label" for="inputSuccess">Survey Question</label>
+  <div class="controls">
+    <input class="span6" type="text" name="question_title" id="inputSuccess">
+  </div>
+</div>
+ 
+<div class="control-group info">
+  <label class="control-label" for="inputInfo">Possible Choice</label>
+  <div class="controls">
+    <input class="span6" type="text" name ='question_answer1' id="inputInfo">
+  </div>
+</div>
 
-  <form action="/user/<%=@user.id%>/survey/<%=@survey.id%>/create_question" method="post">
-    <input type="text" name="question_title" placeholder= "Survey Question">
-    <br>
-    <input type="text" name="question_answer1" placeholder= "Answer Choice 1">
-    <br>
-    <input type="text" name="question_answer2" placeholder= "Answer Choice 2">
-    <br>
-    <input type="text" name="question_answer3" placeholder= "Answer Choice 3">
-    <br>
-    <input type="text" name="question_answer4" placeholder= "Answer Choice 4">
-    <br>
-    <input type="submit" value="Make Me!">
+<div class="control-group info">
+  <label class="control-label" for="inputInfo">Possible Choice</label>
+  <div class="controls">
+    <input class="span6" type="text" name ='question_answer2' id="inputInfo">
+  </div>
+</div>
+
+<div class="control-group info">
+  <label class="control-label" for="inputInfo">Possible Choice</label>
+  <div class="controls">
+    <input class="span6" type="text" name ='question_answer3' id="inputInfo">
+  </div>
+</div>
+
+<div class="control-group info">
+  <label class="control-label" for="inputInfo">Possible Choice</label>
+  <div class="controls">
+    <input class="span6" type="text" name ='question_answer4' id="inputInfo">
+  </div>
+</div>
+
+  <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Make Me!">
+      </div>
+    </div>
+  </div>
+</form>
+
+  <form class="form-horizontal" action="/" method="get"> 
+    <div class="controls">
+      <input type="submit" class="btn btn-large btn-info" value="All Done!">
+    </div>
   </form>
 
-  <form action="/" method="get">
-      <input type="submit" value="All Done!">
-  </form>
-
-  </center>
-
-</container>

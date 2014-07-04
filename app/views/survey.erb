@@ -1,6 +1,5 @@
-<container>
-
-  <h2><%= @survey.name %></h2>
+<div class="hero-unit">
+  <h1><%= @survey.name %></h1>
 <form name = "survey" action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/save" method = "POST">
 
     <% @survey.questions.each_with_index do |question, i| %>
@@ -17,4 +16,4 @@
 
 </form>
 
-</container>
+</div>

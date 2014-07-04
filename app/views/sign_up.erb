@@ -1,15 +1,32 @@
-<center>
-  <h2>Become a Sparkling Unicorn!</h2>
-  <form action="/sign_up" method="post">
-    <br>
-    <input type="text" name="user_name" placeholder= "Full Name">
-    <br>
-    <input type="text" name="email" placeholder= "Email">
-    <br>
-    <input type="password" name="password" placeholder="Password">
-    <br>
-    <br>
-    <input type="submit" value="Sign Me Up!">
+<div class="hero-unit">
+  <form class="form-horizontal" action="/sign_up" method="post">
+    <div class="control-group">
+      <h1>Become a Sparkling Unicorn!</h1>
+      <br><br>
+      <label class="control-label" for="inputName">Username</label>
+      <div class="controls">
+        <input type="text" name="user_name" placeholder= "Full Name">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">Email</label>
+      <div class="controls">
+        <input type="text" name="email" placeholder= "Email">
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="inputEmail">Password</label>
+      <div class="controls">
+        <input type="password" name="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <label class="checkbox">
+          <input type="checkbox"> Remember me
+        </label>
+        <button type="submit" class="btn btn-info">Sign Me Up</button>
+      </div>
+    </div>
   </form>
-  <br>
-</center>
+</div>

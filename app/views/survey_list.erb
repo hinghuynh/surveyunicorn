@@ -1,7 +1,6 @@
-<container>
-  <center>
-    <h2>Welcome <%=@user.name%></h2>
-    <h3>Which survey would you like to take?</h3>
+  <div class="hero-unit">
+    <h1>Welcome <%=@user.name%></h2>
+    <h2>Which survey would you like to take?</h2>
 
     <div class = "survery_links">
       <ul>
@@ -10,23 +9,33 @@
            <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>"><%=survey.name%></a></li>
           <% end %>
           <%else%>
-            <p>No Surveys Available</p>
+            <h2>No Surveys Available</h2>
         <% end %>
       </ul>
     </div>
+  <br><br><br>
+  <form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="post">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Create Survey!">
+      </div>
+    </div>
+  </form>
+  
+  <form class="form-horizontal" action="/sign_out" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="I am Out!">
+      </div>
+    </div>
+  </form>
 
-    <form action="/user/<%=@user.id%>/create_survey" method="post">
-      <input type="submit" value="Create Survey">
-    </form>
-    <br>
-    <form action="/sign_out" method="get">
-      <input type="submit" value="Iam Out!">
-    </form>
-
-    <form action="/user/<%=@user.id%>/profile" method="get">
-      <input type="submit" value="Profile Me!">
-    </form>
-    <br>
-
-  </center>
-</container>
+  <form class="form-horizontal" action="/user/<%=@user.id%>/profile" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Profile Me!">
+      </div>  
+    </div>
+  </form>
+  <br>
+</div>

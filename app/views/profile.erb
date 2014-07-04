@@ -1,12 +1,9 @@
-<container>
-
-  <h2>Profile For <%= @user.name %></h2>
-
-
+<div class="hero-unit">
+  <h1>Profile For <%= @user.name %></h1>
   <div class = "created_survey_links">
     <ul>
       <% if @surveys %>
-      <h3>Created Surveys:</h3>
+      <h2>Created Surveys:</h2>
         <% @surveys.each do |survey| %>
           <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>/edit"><%= survey.name%></a></li>
           <% end %>
@@ -18,7 +15,7 @@
 
       <div class = "completed_survery_links">
     <ul>
-      <h3>Completed Surveys:</h3>
+      <h2>Completed Surveys:</h2>
       <% if @completed_surveys.length > 0 %>
         <% @completed_surveys.each do |completed_survey| %>
           <li><a href="/user/<%=@user.id%>/completed_survey/<%= completed_survey.survey_id %>"><%= completed_survey.survey.name%></a></li>
@@ -28,14 +25,22 @@
         <% end %>
       </ul>
     </div>
+  <br><br>
+  <form class="form-horizontal" action="/" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Go Home">
+      </div>
+    </div>
+  </form>
 
+  <form class="form-horizontal" action="/sign_out" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="I am out!">
+      </div>  
+    </div>
+  </form>
+  <br>
 
-    <form action="/" method="get">
-      <input type="submit" value="Go home">
-    </form>
-    <br>
-    <form action="/sign_out" method="get">
-      <input type="submit" value="Iam Out!">
-    </form>
-
-</container>
+</div>

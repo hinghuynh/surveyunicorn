@@ -1,24 +1,45 @@
-<center>
+<div class="hero-unit">
+<form class="form-horizontal" action="/sign_up" method="post">
   <h1>Unicorn Login!</h1>
-  <form action="/login" method="post">
   <br>
-    <input type="text" name="email" placeholder= "Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Let's survey!">
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Email</label>
+    <div class="controls">
+      <input type="text" name="email" placeholder= "Email">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Password</label>
+    <div class="controls">
+      <input type="password" name="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
+      <button type="submit" class="btn btn-info">Let's Survey</button>
+    </div>
+  </div>
+</form>
+<br><br><br><br>
+  <h1>New User?</h1>
+  <br>
+  <form class="form-horizontal" action="/sign_up" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Sign Me Up!">
+      </div>
+    </div>
+  </form>
+
+  <form class="form-horizontal" action="/" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Home">
+      </div>  
+    </div>
   </form>
   <br>
-
-  <center>New User?</center>
-  <br>
-  <form action="/sign_up" method="get"><center>
-    <input type="submit" value="Sign Me Up!"></center>
-  </form>
-  <br>
-
-  <form action="/" method="get"><center>
-  <input type="submit" value="Home"></center>
-  </form>
-
-  <br>
-
-</center>
+</div>

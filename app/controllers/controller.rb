@@ -85,7 +85,6 @@ end
 
 get '/user/:user_id/completed_survey/:survey_id' do
   @user = User.find(params[:user_id])
-  @survey = CompletedSurvey.where(survey_id:  ).where
   erb :view_survey
 end
 
