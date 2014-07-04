@@ -1,15 +1,18 @@
 <container>
 
-  <form action="/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=@question.id%>/edit_survey" method="post">
-    <input type="text" name="question_title" placeholder= "<%=@question.content%>">
+  <form action="/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=@question.id%>/edit" method="post">
+    <input type="text" name="question_title" value= "<%=@question.content%>">
     <br>
-    <% index = 1 %>
-    <% @question.answers.each |answer| do %>
-      <input type="text" name="question_answer<%=index%>" placeholder= "<%=answer.content%>">
+    <% @question.answers.each do |answer|  %>
+      <input type="text" name='<%=answer.id%>' value= "<%=answer.content%>">
       <br>
-    <% index += 1 %>
     <% end %>
       <input type="submit" value="Edit Me!">
+  </form>
+  <!-- add a button for adding questions here -->
+
+  <form action="/" method="get">
+      <input type="submit" value="All Done!">
   </form>
 
 </container>

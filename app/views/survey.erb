@@ -3,12 +3,18 @@
   <h2><%= @survey.name %></h2>
 <form name = "survey" action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/save" method = "POST">
 
-    <% @survey.questions.each do |question| %>
-      <%= question %>
+    <% @survey.questions.each_with_index do |question, i| %>
+      <%= question.content %>
+      <ul>
       <% question.answers.each do |answer| %>
-        <input type="radio" name="answer" value= "#{answer}">answer<br>
+        <li><input type="radio" name= <%= i %> value= <%= answer.id %>><%= answer.content %><br>
+        </li>
       <% end %>
+    </ul>
+    <hr>
     <% end %>
     <input type = "submit" value = "Submit">
 
 </form>
+
+</container>

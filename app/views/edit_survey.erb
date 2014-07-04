@@ -1,13 +1,16 @@
 <!-- this should be a form to change the title of the survey -->
-<form action = "/user/#{@user.id}/survey/create_title" method = "POST">
-<input type = "text" name = "survey_name" value ><%= @survey.name %></h2>
 
+
+
+<form action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/edit_title" method = "POST">
+<input type = "text" name = "survey_name" value = "<%= @survey.name %>"></h2>
+<input type="submit" value= "Make it sa, cha brah."><br>
+</form>
 
 <% @survey.questions.each do |question| %>
-<form name = "survey" action = "/survey" method = "POST">
-  <a href = "/edit/question/#{question.id}"><%= question %></a>
+  <a href = "/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=question.id%>"><%= question.content %></a>
   <% question.answers.each do |answer| %>
-<input type="radio" name="answer" value= "#{answer}">answer<br>
+    <p>Answer = <%=answer.content%></p>
   <% end %>
 <% end %>
 </form>

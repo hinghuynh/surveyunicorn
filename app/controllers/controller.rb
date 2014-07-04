@@ -45,6 +45,13 @@ get '/sign_out' do
   redirect '/'
 end
 
+get '/user/:user_id/profile' do
+  @user = User.find(params[:user_id])
+  @surveys = Survey.where(creator_id: params[:user_id])
+  @completed_surveys = CompletedSurvey.where(user_id: params[:user_id])
+  erb :profile
+end
+
 #----------- SURVEY -----------
 
 
@@ -70,14 +77,67 @@ post '/user/:user_id/survey/:survey_id/create_question' do
   erb :create_question
 end
 
-post '/user/:user_id/survey/:survey.id' do
+get '/user/:user_id/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
-  @user = User.find(params[:id])
+  @user = User.find(params[:user_id])
   erb :survey
 end
 
+get '/user/:user_id/completed_survey/:survey_id' do
+  @user = User.find(params[:user_id])
+  @survey = CompletedSurvey.where(survey_id:  ).where
+  erb :view_survey
+end
+
 post '/user/:user_id/survey/:survey_id/save' do
+  counter = 0
+  until params[:'#{counter}'] == nil
+    UserAnswer.create(answer_id: params[:'#{counter}'], user_id: params[:user_id])
+    counter += 1
+  end
+
+  CompletedSurvey.create(user_id: params[:user_id], survey_id: params[:survey_id])
+
+  @user = User.find(params[:user_id])
+  @surveys = Survey.all
+
   erb :survey_list
 end
 
+#----------- EDIT -----------
 
+get '/user/:user_id/survey/:survey_id/edit' do
+
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
+
+  erb :edit_survey
+end
+
+post "/user/:user_id/survey/:survey_id/edit_title" do
+  Survey.update(params[:survey_id], name: params[:survey_name])
+  redirect "/user/#{params[:user_id]}/survey/#{params[:survey_id]}/edit"
+end
+
+get "/user/:user_id/survey/:survey_id/question/:question_id" do
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
+  @question = Question.find(params[:question_id])
+
+  erb :edit_question
+end
+
+post"/user/:user_id/survey/:survey_id/question/:question_id/edit" do
+ @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
+  Question.update(params[:question_id], content: params[:question_title])
+  @question = Question.find(params[:question_id])
+  @question.answers.each do |answer|
+    if params[:"#{answer.id}"] == ""
+      Answer.destroy(answer.id)
+    else
+      Answer.update(answer.id, content: params[:"#{answer.id}"])
+    end
+  end
+  erb :edit_survey
+end

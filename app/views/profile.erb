@@ -1,0 +1,41 @@
+<container>
+
+  <h2>Profile For <%= @user.name %></h2>
+
+
+  <div class = "created_survey_links">
+    <ul>
+      <% if @surveys %>
+      <h3>Created Surveys:</h3>
+        <% @surveys.each do |survey| %>
+          <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>/edit"><%= survey.name%></a></li>
+          <% end %>
+          <%else%>
+            <p>You haven't made any survey!</p>
+        <% end %>
+      </ul>
+    </div>
+
+      <div class = "completed_survery_links">
+    <ul>
+      <h3>Completed Surveys:</h3>
+      <% if @completed_surveys.length > 0 %>
+        <% @completed_surveys.each do |completed_survey| %>
+          <li><a href="/user/<%=@user.id%>/completed_survey/<%= completed_survey.survey_id %>"><%= completed_survey.survey.name%></a></li>
+          <% end %>
+          <%else%>
+            <p>You haven't filled out any surveys!</p>
+        <% end %>
+      </ul>
+    </div>
+
+
+    <form action="/" method="get">
+      <input type="submit" value="Go home">
+    </form>
+    <br>
+    <form action="/sign_out" method="get">
+      <input type="submit" value="Iam Out!">
+    </form>
+
+</container>
