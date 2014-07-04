@@ -1,19 +1,21 @@
 <div class="hero-unit">
-  <h1><%= @survey.name %></h1>
-<form name = "survey" action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/save" method = "POST">
-
-    <% @survey.questions.each_with_index do |question, i| %>
-      <%= question.content %>
-      <ul>
-      <% question.answers.each do |answer| %>
-        <li><input type="radio" name= <%= i %> value= <%= answer.id %>><%= answer.content %><br>
-        </li>
-      <% end %>
-    </ul>
-    <hr>
+  <h2 class="text-success"><%= @survey.name %></h1>
+  <form class="form-horizontal" name = "survey" action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/save" method = "POST">
+    <br> 
+      <% @survey.questions.each_with_index do |question, i| %>
+        <div class="control-group">
+          <div class="controls">
+            <%= question.content %>        
+            <% question.answers.each do |answer| %>
+              <li><input type="radio" name= <%= i %> value= <%= answer.id %>><%= answer.content %></li>
+          <% end %>
+        </div>
+    </div>    
     <% end %>
-    <input type = "submit" value = "Submit">
-
-</form>
-
+    <div class="control-group">
+        <div class="controls">
+          <input class="btn btn-large btn-info" type = "submit" value = "Submit">
+        </div>
+      </div>
+  </form>
 </div>
