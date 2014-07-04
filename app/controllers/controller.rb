@@ -18,6 +18,7 @@ get '/sign_up' do
 end
 
 post '/sign_up' do
+  @surveys = Survey.all
   @user = User.new(name: params[:user_name], email: params[:email])
   @user.password = params[:password]
   @user.save!
@@ -27,6 +28,7 @@ end
 
 post '/login' do
   @user = User.find_by("email = ?", params[:email])
+  @surveys = Survey.all
   if @user == nil
     erb :login
   elsif @user.password == params[:password]
