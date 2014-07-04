@@ -1,6 +1,10 @@
 get '/' do
-  @users = User.all
-  erb :index
+  if logged_in?
+    @user = current_user
+    erb :survey_list
+  else
+    erb :index
+  end
 end
 
 #----------- USERS-----------
@@ -33,5 +37,21 @@ post 'login' do
   end
 end
 
+get '/sign_out' do
+  session.clear
+  redirect '/'
+end
+
 #----------- SURVEY -----------
+
+
+post '/user/:id/create_survey' do
+  @user = User.find(params[:id])
+  erb :create_survey
+end
+
+post '/user/:id/create_question' do
+  @survey = Survey.create(name: params[:survey_title], creator_id: params[:id])
+  erb :create_question
+end
 
