@@ -5,7 +5,7 @@
   <div class = "survery_links">
     <ul>
       <% @surveys.each do |survey| %>
-        <li><a href="/user/<%=#{@user.id}%>/survey/<%=#{survey.id}%>"><%=#{survey.name}%></a></li>
+        <li><a href="/user/<%=#{@user.id}%>/survey/<%=#{@survey.id}%>"><%=#{@survey.name}%></a></li>
       <%end%>
     </ul>
 
