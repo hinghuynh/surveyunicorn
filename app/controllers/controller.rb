@@ -72,9 +72,7 @@ post '/user/:user_id/survey/:survey.id' do
 end
 
 post '/user/:user_id/survey/:survey_id/save' do
-  erb: survey_list
+  erb :survey_list
 end
-
-
 
 
