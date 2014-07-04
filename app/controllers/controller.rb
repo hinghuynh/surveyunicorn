@@ -65,13 +65,15 @@ post '/user/:user_id/survey/:survey_id/create_question' do
   erb :create_question
 end
 
+post '/user/:user_id/survey/:survey.id' do
+  @survey = survey.find(params[:survey_id])
+  @user = User.find(params[:id])
+  erb :survey
+end
 
-
-
-
-
-
-
+post '/user/:user_id/survey/:survey_id/save' do
+  erb: survey_list
+end
 
 
 
