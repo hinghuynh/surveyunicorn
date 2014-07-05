@@ -54,8 +54,8 @@ end
 
 get '/user/:user_id/survey/:survey_id/results' do
   @user = User.find(params[:user_id])
-  @surveys = Survey.find(params[:survey_id])
-  erb :survey_results
+  @survey = Survey.find(params[:survey_id])
+  erb :survey_result
 end
 #----------- SURVEY -----------
 
@@ -99,8 +99,11 @@ end
 
 post '/user/:user_id/survey/:survey_id/save' do
   counter = 0
+  survey = Survey.find_by(id: params[:survey_id])
+  puts "these are the params #{params}"
   until params[:'#{counter}'] == nil
     UserAnswer.create(answer_id: params[:'#{counter}'], user_id: params[:user_id])
+    QuestionAnswer.create(answer_id: params[:'#{counter}'], question_id: survey.questions[counter].id)
     counter += 1
   end
 
