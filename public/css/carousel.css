@@ -1,0 +1,72 @@
+/*
+ * Attribution: http://csswizardry.com/2011/10/fully-fluid-responsive-css-carousel/
+ *
+ * DON'T VISIT THE ABOVE SITE FOR ANSWERS UNLESS YOU'RE
+ * COMPLETELY STUMPED
+ *
+ * ...also, it will not help you solve the JavaScript :)
+*/
+
+.container {
+  width: 590px;
+  height: 320px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+.carousel{
+  /*overflow:hidden;*/
+  width:100%;
+}
+.frames{
+  list-style:none;
+  /* position: What value should position have?; */
+  width:300%;
+  overflow:hidden;
+  padding:0;
+  margin: 0;
+  margin-left: 0px;
+  border: 2px solid blue;
+}
+.frames > li{
+  /* position: What value should position have?; */
+  float:left;
+  width:33.33333%; /* 100 / number of frames */
+}
+.fill{
+  display:block;
+  width:100%;
+  max-width:100%;
+}
+.carousel h2{
+  font-size:1em;
+  padding:0.5em;
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  text-align:left;
+  margin: 0;
+  color:#fff;
+  background-color:rgba(99,0,0,0.75);
+}
+
+.carousel_controls a {
+  font-family: monospace;
+  text-decoration: none;
+  position: absolute;
+  margin-top: 99px;
+  width: 30px;
+  line-height: 30px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+a#previous_frame {
+  margin-left: -50px;
+}
+a#next_frame {
+  margin-left: 380px;
+}
