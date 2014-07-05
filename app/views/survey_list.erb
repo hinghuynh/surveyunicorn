@@ -14,14 +14,14 @@
       </ul>
     </div>
   <br><br><br>
-  <form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="post">
+  <form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="get">
     <div class="control-group">
       <div class="controls">
         <input type="submit" class="btn btn-large btn-info" value="Create Survey!">
       </div>
     </div>
   </form>
-  
+
   <form class="form-horizontal" action="/sign_out" method="get">
     <div class="control-group">
       <div class="controls">
@@ -34,7 +34,7 @@
     <div class="control-group">
       <div class="controls">
         <input type="submit" class="btn btn-large btn-info" value="Profile Me!">
-      </div>  
+      </div>
     </div>
   </form>
   <br>

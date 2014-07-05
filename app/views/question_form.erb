@@ -1,11 +1,11 @@
 <br>
-<form class="form-horizontal" action="/user/<%=@user.id%>/survey/<%=@survey.id%>/create_question" method="post">
- 
+<form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="post">
+
   <div class="control-group success">
     <label class="control-label" for="inputSuccess">Survey Question</label>
       <input class="span4" type="text" name="question_title" id="inputSuccess">
   </div>
-   
+
   <% 4.times.each do |i| %>
   <div class="control-group info">
     <label class="control-label" for="inputInfo">Possible Choice</label>
@@ -14,7 +14,7 @@
   <% end %>
   <center>
   <div class="control-group">
-      <input type="submit" class="btn btn-large btn-info" value="Make Me!">
+      <input id = "next_question" type="submit" class="btn btn-large btn-info" value="Make Me!">
   </div>
 </center>
 

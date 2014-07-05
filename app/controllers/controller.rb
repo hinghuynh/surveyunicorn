@@ -60,26 +60,30 @@ end
 #----------- SURVEY -----------
 
 
-post '/user/:id/create_survey' do
+get '/user/:id/create_survey' do
   @user = User.find(params[:id])
-  erb :create_survey
+  erb :create_a_survey
 end
 
-post '/user/:id/create_question' do
-  @user = User.find(params[:id])
-  @survey = Survey.create(name: params[:survey_title], creator_id: params[:id])
-  erb :create_question
-end
+# post '/user/:id/create_question' do
+#   @user = User.find(params[:id])
+#   erb :create_question
+# end
 
-post '/user/:user_id/survey/:survey_id/create_question' do
-  @user = User.find(params[:user_id])
-  @survey = Survey.find(params[:survey_id])
-  question = Question.create(survey_id: params[:survey_id], content: params[:question_title])
-  Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
-  Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
-  Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""
-  Answer.create(question_id: question.id, content: params[:question_answer4]) if params[:question_answer4] != ""
-  erb :create_question
+post '/user/:user_id/create_survey' do
+  @user = current_user
+  if params[:survey_title] != nil
+    @survey = Survey.create(name: params[:survey_title], creator_id: params[:user_id])
+  end
+  if params[:question_title] != nil
+    question = Question.create(survey_id: params[:survey_id], content: params[:question_title])
+    Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
+    Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
+    Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""
+    Answer.create(question_id: question.id, content: params[:question_answer4]) if params[:question_answer4] != ""
+  end
+    # erb :question_form, layout: false, locals: {user: @user}
+
 end
 
 get '/user/:user_id/survey/:survey_id' do

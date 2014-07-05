@@ -35,8 +35,8 @@
 }
 .fill{
   display:block;
-  width:100%;
-  max-width:100%;
+  width:590px;
+  height:320px;
 }
 .carousel h2{
   font-size:1em;
@@ -66,9 +66,15 @@
 }
 a#previous_frame {
   margin-left: -50px;
+  display: none;
 }
+
 a#next_frame {
   margin-left: 380px;
+  display: none;
+}
+input#next_question {
+
 }
 
 img.unicorn {
