@@ -1,3 +1,7 @@
+Cool deal, martin, thanks. I was just trying to get a better grasp on the context of whatever problem you were having.
+
+Hing and I are having fun implementing cool things. Have a great night; we'll see you later.
+
 i will try and look at them tonight.  What the results page is trying to accomplish is to display each answer along with the number of times the answer has been picked by all users.  Im in the middle of a whirlwind of children and noise and am not thinking straight, will continue working tomorrow though to implement a javascript bar graph.
 
 
@@ -5,7 +9,7 @@ i will try and look at them tonight.  What the results page is trying to accompl
 when you have time martin check out the new index and create survey page.
 
  celeen: did you figure this out? why are we trying to count a single answer id? What is this code trying to accomplish? What errors are you getting? wat?
- 
+
  need some help with line 10 in the survey_result erb.
 
                 <li><%=question.content%> = <%=QuestionAnswers.where(question_id: question.id, answer_id: answer.id.count %></li>
@@ -86,5 +90,5 @@ i made the route and a simple display for it, but have not employed it yet.
          }]
      });
  });
-    
+
  	</script>

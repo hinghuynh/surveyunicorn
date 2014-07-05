@@ -1,5 +1,5 @@
 <div class="hero-unit">
-<form class="form-horizontal" action="/sign_up" method="post">
+<form name = "log_in" class="form-horizontal" action="/login" method="post">
   <h1>Unicorn Login!</h1>
   <br>
   <div class="control-group">
@@ -19,27 +19,11 @@
       <label class="checkbox">
         <input type="checkbox"> Remember me
       </label>
-      <button type="submit" class="btn btn-info">Let's Survey</button>
+      <input type="submit" class="btn btn-info" value = "Let's Survey">
     </div>
   </div>
+<ul id = "errors"></ul>
 </form>
 <br><br><br><br>
-  <h1>New User?</h1>
-  <br>
-  <form class="form-horizontal" action="/sign_up" method="get">
-    <div class="control-group">
-      <div class="controls">
-        <input type="submit" class="btn btn-large btn-info" value="Sign Me Up!">
-      </div>
-    </div>
-  </form>
 
-  <form class="form-horizontal" action="/" method="get">
-    <div class="control-group">
-      <div class="controls">
-        <input type="submit" class="btn btn-large btn-info" value="Home">
-      </div>  
-    </div>
-  </form>
-  <br>
 </div>

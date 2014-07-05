@@ -1,7 +1,8 @@
 <div class="hero-unit">
-  <form class="form-horizontal" action="/sign_up" method="post">
-    <div class="control-group">
       <h1>Become a Sparkling Unicorn!</h1>
+  <form name = "sign_up" class="form-horizontal" action="/sign_up" method="post">
+    <div>
+    <div class="control-group">
       <br><br>
       <label class="control-label" for="inputName">Username</label>
       <div class="controls">
@@ -28,5 +29,7 @@
         <button type="submit" class="btn btn-info">Sign Me Up</button>
       </div>
     </div>
+  </div>
   </form>
+    <ul id = "errors"></ul>
 </div>

@@ -169,3 +169,16 @@ img.unicorn {
   display: inline-block;
   width: 60px;
 }
+
+form[name="sign_up"] {
+  display: inline-block;
+}
+
+#errors {
+  font-size: .8em;
+  color: red;
+  /*width:50%;*/
+  display: inline-block;
+  vertical-align: top;
+  padding: 60px 0;
+}

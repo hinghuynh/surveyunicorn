@@ -30,13 +30,18 @@ end
 post '/login' do
   @user = User.find_by("email = ?", params[:email])
   @surveys = Survey.all
+
   if @user == nil
-    erb :login
+    puts "user equals nil!"
+    # status 422
+    halt 400, "User does not exist"
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
     erb :survey_list
   else
-    erb :login
+    puts "ELSE!"
+    status 422
+    return "Email and Password do not match"
   end
 end
 
