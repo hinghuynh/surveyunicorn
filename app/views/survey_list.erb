@@ -14,7 +14,7 @@
       </ul>
     </div>
   <br><br><br>
-  <form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="get">
+  <form style = "display: inline-block" class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="get">
     <div class="control-group">
       <div class="controls">
         <input type="submit" class="btn btn-large btn-info" value="Create Survey!">
@@ -22,15 +22,8 @@
     </div>
   </form>
 
-  <form class="form-horizontal" action="/sign_out" method="get">
-    <div class="control-group">
-      <div class="controls">
-        <input type="submit" class="btn btn-large btn-info" value="I am Out!">
-      </div>
-    </div>
-  </form>
 
-  <form class="form-horizontal" action="/user/<%=@user.id%>/profile" method="get">
+  <form style = "display: inline-block" class="form-horizontal" action="/user/<%=@user.id%>/profile" method="get">
     <div class="control-group">
       <div class="controls">
         <input type="submit" class="btn btn-large btn-info" value="Profile Me!">

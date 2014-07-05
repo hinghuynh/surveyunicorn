@@ -21,13 +21,19 @@
   <body
     <div class="top1">
       <div class="top-left">
-        <img src="/img/unicorn.png" class="img-responsive unicorn" alt="Responsive image">
-        <h2 class="unicorn"> SurveyUnicorn<span style="font-size:small;">®</span></h2>
+        <img src="/img/unicorn.png" class="img-responsive unicorn" alt="Responsive image"/>
+        <h2 class="unicorn"><span class = "rainbow"> SurveyUnicorn</span><span style="font-size:small;">®</span></h2>
       </div>
       <div class="top-right1">
+        <% if current_user %>
+         <form action="/sign_out" method="get">
+          <input class="btn btn-info" type="submit" value="Sign Out">
+        </form>
+        <% else %>
         <form action="/login" method="get">
           <input class="btn btn-info" type="submit" value="Sign In">
         </form>
+        <% end %>
       </div>
       <div class="top-right2">
         <form action="/help" method="get">
