@@ -1,16 +1,28 @@
 <!-- this should be a form to change the title of the survey -->
 
+<container>
+	<center>
 
+		<form action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/edit_title" method = "POST">
+			<input type = "text" name = "survey_name" value = "<%= @survey.name %>"></h2>
+			<input type="submit" value= "Make it sa, cha brah."><br>
+		</form>
 
-<form action = "/user/<%=@user.id%>/survey/<%=@survey.id%>/edit_title" method = "POST">
-<input type = "text" name = "survey_name" value = "<%= @survey.name %>"></h2>
-<input type="submit" value= "Make it sa, cha brah."><br>
-</form>
+		<% @survey.questions.each do |question| %>
+  		<a href = "/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=question.id%>"><%= question.content %></a>
+			  <% question.answers.each do |answer| %>
+   			  <p>Answer = <%=answer.content%></p>
+ 			  <% end %>
+		<% end %>
+</center>
+<br><br><br>
 
-<% @survey.questions.each do |question| %>
-  <a href = "/user/<%=@user.id%>/survey/<%=@survey.id%>/question/<%=question.id%>"><%= question.content %></a>
-  <% question.answers.each do |answer| %>
-    <p>Answer = <%=answer.content%></p>
-  <% end %>
-<% end %>
-</form>
+	 <form class="form-horizontal" action="/" method="get">
+	    <div class="control-group">
+	      <div class="controls">
+	        <input type="submit" class="btn btn-large btn-info" value="Go Home">
+	      </div>
+	    </div>
+	  </form>
+	
+</container>
