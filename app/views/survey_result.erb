@@ -1,0 +1,16 @@
+<container>
+
+	<h2> Survey: <%=@survey.name=%></h2> 
+
+	<% @survey.questions.each do |question| %>
+		<ul>
+			<li><%=question.content%></li>
+			<ul>
+			<% question.answers.each do |answer| do %>
+				<li><%=question.content%> = <%=QuestionAnswers.where(question_id: question.id, answer_id: answer.id).count %></li>
+			<%end%>
+			</ul>
+		</ul>
+	<%end%>
+	
+</container>	

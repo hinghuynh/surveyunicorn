@@ -52,6 +52,11 @@ get '/user/:user_id/profile' do
   erb :profile
 end
 
+get '/user/:user_id/survey/:survey_id/results' do
+  @user = User.find(params[:user_id])
+  @surveys = Survey.find(params[:survey_id])
+  erb :survey_results
+end
 #----------- SURVEY -----------
 
 
