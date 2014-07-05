@@ -70,3 +70,94 @@ a#previous_frame {
 a#next_frame {
   margin-left: 380px;
 }
+
+img.unicorn {
+  float: left;
+  -webkit-filter: invert(100%);
+  width: 128px;
+  height: 70px;
+
+}
+
+
+.banner {
+  background-image:url('/img/banner.jpg');
+  background-size: cover;
+  height: auto;
+  width: 80%;
+  margin: auto;
+  border-radius: 3px;
+}
+
+.t0 {
+
+}
+.t1 {
+  width: 100px;
+  display: inline-block;
+  margin: 30px;
+}
+
+.t2 {
+  width: 100px;
+  display: inline-block;
+  margin: 30px;
+}
+
+.t3 {
+  width: 110px;
+  display: inline-block;
+  margin: 30px;
+}
+
+.t4 {
+  position: relative;
+  right: 0;
+  width: 150px;
+  display: inline-block;
+  margin: 30px;
+}
+
+
+.text-gray {
+  color: gray;
+}
+
+.bottom-stuff {
+  width: 80%;
+  margin: auto;
+}
+
+.bottom-left {
+
+  width: 44%;
+  border: solid 1px gray;
+  border-radius: 6px;
+  float: left;
+  padding: 20px;
+}
+
+.bottom-right {
+  width: 44%;
+  border: solid 1px gray;
+  border-radius: 6px;
+  float: right;
+  padding: 20px;
+}
+
+.top1 {
+}
+
+.top-left {
+  display: inline-block;
+  width:70%;
+}
+
+.top-right1 {
+  display: inline-block;
+  width: 70px;
+}
+.top-right2 {
+  display: inline-block;
+  width: 60px;
+}

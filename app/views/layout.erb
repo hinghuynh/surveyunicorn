@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- 
+  <head>
+    <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
-  -->
-  <link href="/css/bootstrap.css" rel="stylesheet">
-  <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-<!--   <link rel="stylesheet" href="/css/normalize.css"> -->
-  <!--
+    -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
+    <!--   <link rel="stylesheet" href="/css/normalize.css"> -->
+    <!--
     application.css is where you put your styles
-  -->
-  <!-- <link rel="stylesheet" href="/css/application.css"> -->
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title></title>
-</head>
-<body>
-  <%= yield %>
-  <script src="/js/bootstrap.min.js"></script>
-</body>
+    -->
+    <!-- <link rel="stylesheet" href="/css/application.css"> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
+    <title></title>
+  </head>
+  <body
+    <div class="top1">
+      <div class="top-left">
+        <img src="/img/unicorn.png" class="img-responsive unicorn" alt="Responsive image">
+        <h2 class="unicorn"> SurveyUnicorn<span style="font-size:small;">®</span></h2>
+      </div>
+      <div class="top-right1">
+        <form action="/login" method="get">
+          <input class="btn btn-info" type="submit" value="Sign In">
+        </form>
+      </div>
+      <div class="top-right2">
+        <form action="/help" method="get">
+          <input class="btn btn-warning" type="submit" value="Help">
+        </form>
+      </div>
+      <ul class="nav nav-tabs" role="tablist">
+        <li><a class= href="#">Home</a></li>
+        <li><a href="#">How it Works</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Examples <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Survey Services <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+          </ul>
+        </li>
+        <li><a href="#">Plans & Pricing</a></li>
+      </ul>
+    </div>
+    <%= yield %>
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
 </html>
