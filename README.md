@@ -1,3 +1,8 @@
+ need some help with line 10 in the survey_result erb.
+
+                <li><%=question.content%> = <%=QuestionAnswers.where(question_id: question.id, answer_id: answer.id.count %></li>
+
+
 Sounds Good. GO FOR IT. =)
 
 

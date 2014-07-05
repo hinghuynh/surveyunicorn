@@ -1,16 +1,24 @@
 <container>
 
-	<h2> Survey: <%=@survey.name=%></h2> 
+	<h2> Survey: "<%=@survey.name%>"</h2> 
 
 	<% @survey.questions.each do |question| %>
 		<ul>
 			<li><%=question.content%></li>
 			<ul>
-			<% question.answers.each do |answer| do %>
-				<li><%=question.content%> = <%=QuestionAnswers.where(question_id: question.id, answer_id: answer.id).count %></li>
+			<% question.answers.each do |answer| %>
+				<li><%=question.content%> = <%=QuestionAnswers.where(question_id: question.id, answer_id: answer.id.count %></li>
 			<%end%>
 			</ul>
 		</ul>
 	<%end%>
+
+	<form class="form-horizontal" action="/" method="get">
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-large btn-info" value="Go Home">
+      </div>
+    </div>
+  </form>
 	
 </container>	
