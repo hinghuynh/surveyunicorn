@@ -1,9 +1,9 @@
 $(function() {
     var moveOn = function() {
-        if ($('.frames').css('margin-left') <= '-1770' + 'px') {
+        if ($('.frames').css('margin-left') <= '-1180' + 'px') {
             console.log("before after statement");
             $('.frames').css('margin-left', '-590' + 'px');
-            $("li #id:last-child").after($('li #id:first-child'));
+            $("li #cell:last-child").after($('li #cell:first-child'));
         }
 
         var value = ($('.frames').css('margin-left'));
@@ -13,6 +13,8 @@ $(function() {
         }, 300);
 
     };
+
+
     $('.carousel').on("click", "#next_question", function(event) {
         event.preventDefault();
         console.log("this is after the click");
@@ -26,6 +28,8 @@ $(function() {
             success: (function() {
                 console.log("success");
                 moveOn();
+                $('.fill > form')[0].reset();
+                $('.fill > form')[1].reset();
             })
         });
     });

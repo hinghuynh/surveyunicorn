@@ -11,11 +11,11 @@
   width: 590px;
   height: 320px;
   margin: 0 auto;
-  border: 2px solid red;
+  /*border: 2px solid red;*/
 }
 
 .carousel{
-  /*overflow:hidden;*/
+  overflow:hidden;
   width:100%;
 }
 .frames{
@@ -26,7 +26,7 @@
   padding:0;
   margin: 0;
   margin-left: 0px;
-  border: 2px solid blue;
+  /*border: 2px solid blue;*/
 }
 .frames > li{
   /* position: What value should position have?; */
