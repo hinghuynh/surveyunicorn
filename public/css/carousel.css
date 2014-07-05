@@ -90,7 +90,7 @@ img.unicorn {
   background-image:url('/img/banner.jpg');
   background-size: cover;
   height: auto;
-  width: 80%;
+  width: 100%;
   margin: auto;
   border-radius: 3px;
 }
@@ -101,19 +101,19 @@ img.unicorn {
 .t1 {
   width: 100px;
   display: inline-block;
-  margin: 30px;
+  margin: 6%;
 }
 
 .t2 {
   width: 100px;
   display: inline-block;
-  margin: 30px;
+  margin: 6%;
 }
 
 .t3 {
   width: 110px;
   display: inline-block;
-  margin: 30px;
+  margin: 6%;
 }
 
 .t4 {
@@ -121,7 +121,7 @@ img.unicorn {
   right: 0;
   width: 150px;
   display: inline-block;
-  margin: 30px;
+  margin: 6%;
 }
 
 
@@ -130,13 +130,13 @@ img.unicorn {
 }
 
 .bottom-stuff {
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 
 .bottom-left {
 
-  width: 44%;
+  width: 45%;
   border: solid 1px gray;
   border-radius: 6px;
   float: left;
@@ -144,7 +144,7 @@ img.unicorn {
 }
 
 .bottom-right {
-  width: 44%;
+  width: 45%;
   border: solid 1px gray;
   border-radius: 6px;
   float: right;
@@ -152,16 +152,18 @@ img.unicorn {
 }
 
 .top1 {
+  width: 70%;
+  margin: auto;
 }
 
 .top-left {
   display: inline-block;
-  width:70%;
+  width:80%;
 }
 
 .top-right1 {
   display: inline-block;
-  width: 70px;
+  width: 80px;
 }
 .top-right2 {
   display: inline-block;
