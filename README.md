@@ -1,3 +1,5 @@
+when you have time martin check out the new index and create survey page.
+
  celeen: did you figure this out? why are we trying to count a single answer id? What is this code trying to accomplish? What errors are you getting? wat?
  
  need some help with line 10 in the survey_result erb.
