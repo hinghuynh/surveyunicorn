@@ -3,8 +3,6 @@ get '/' do
     @user = current_user
     @surveys = Survey.all
     @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
-    puts "HELLO!"
-    puts @uncompleted_surveys
     erb :survey_list
   else
     erb :index
@@ -133,6 +131,7 @@ post '/user/:user_id/survey/:survey_id/save' do
 
   @user = User.find(params[:user_id])
   @surveys = Survey.all
+  @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
 
   erb :survey_list
 end

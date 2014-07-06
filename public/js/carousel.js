@@ -38,10 +38,32 @@ $(function() {
     });
 
 
-    $('.carousel').on("click", "#next_question", function(event) {
+    $('.carousel').on("click", "#first_question", function(event) {
         event.preventDefault();
         console.log("this is after the click");
-        var str = $('#question').serialize();
+        var str = $('#question1').serialize();
+        console.log(str);
+        var target = event.target.href;
+        console.log(event.currentTarget.form.action);
+        $.ajax({
+            url: event.currentTarget.form.action,
+            type: 'POST',
+            data: str,
+            success: (function() {
+                console.log("success");
+                moveOn();
+                console.log($('.fill > form')[1]);
+                $('.fill > form')[0].reset();
+                $('.fill > form')[1].reset();
+                $('.fill > form')[2].reset();
+            })
+        });
+    });
+
+    $('.carousel').on("click", "#second_question", function(event) {
+        event.preventDefault();
+        console.log("this is after the click");
+        var str = $('#question2').serialize();
         console.log(str);
         var target = event.target.href;
         console.log(event.currentTarget.form.action);
