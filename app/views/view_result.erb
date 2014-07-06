@@ -1,6 +1,7 @@
 
 <div id="results_page" style="width:100; height: 400px;" ></div>
 <% @index += 1 %>
+
 <form class="form-horizontal" action="/user/<%="#{@user.id}"%>/survey/<%="#{@survey.id}"%>/question/<%="#{@index}"%>/results" method="get">
     <div class="control-group">
         <div class="controls">
@@ -19,7 +20,7 @@ $(function () {
             text: "<%=@question.content%>"
         },
         xAxis: {
-            categories: ["<%=@question.answers[0].content%>", "<%=@question.answers[1].content%>", "<%=@question.answers[2].content%>", "<%=@question.answers[3].content%>"]
+            categories: <%= @categories_array %>
         },
         yAxis: {
             title: {
@@ -28,59 +29,11 @@ $(function () {
         },
         series: [{
             name: 'All Users',
-            data: [<%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[0].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[1].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[2].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[3].id)).count %>]
+            data: <%= @data_array %>
         }]
     });
 });
 
-// $(function() {
-//     $('#results_page').highcharts({
-//         chart: {
-//         type: 'column',
-//         options3d: {
-//             enabled: true,
-//             alpha: 15,
-//             beta: 15,
-//             viewDistance: 25,
-//             depth: 40
-//         },
-//         marginTop: 80,
-//         marginRight: 40
-//     },
 
-//     title: {
-//         text: 'Answers, grouped by question'
-//     },
-
-//     xAxis: {
-//         categories: [<%=@question.answers[0].content%>, <%=@question.answers[1].content%>, <%=@question.answers[2].content%>, <%=@question.answers[3].content%>,]
-//     },
-
-//     yAxis: {
-//         allowDecimals: false,
-//         min: 0,
-//         title: {
-//             text: 'Times Chosen'
-//         }
-//     },
-
-//     tooltip: {
-//         headerFormat: '<b>{point.key}</b><br>',
-//         pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
-//     },
-
-//     plotOptions: {
-//         column: {
-//             stacking: 'normal',
-// ]           depth: 40
-//         }
-//     },
-
-//     series: [{
-//         name: 'Times Chosen',
-//         data: [<%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[0].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[1].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[2].id)).count %>, <%=(QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[3].id)).count %>],
-//         stack: 'male'
-//     }],@index = p
-// });
 
 </script>

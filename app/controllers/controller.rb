@@ -74,6 +74,18 @@ get '/user/:user_id/survey/:survey_id/results' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
   @question = @survey.questions[0]
+  @data_array = []
+  @categories_array = []
+  @question.answers.each do |answer|
+    if answer != nil
+      @categories_array << answer.content
+    end
+  end
+  i = 0
+  @question.answers.each do |blah|
+    @data_array << (QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[i].id)).count
+    i += 1
+  end
   @index = 0
   erb :view_result
 end
@@ -81,14 +93,29 @@ end
 get '/user/:user_id/survey/:survey_id/question/:question_index_number/results' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
-  @index = params[:question_index_number]
-  @question = @survey.questions[@index.to_i]
-  if @question.content != ""
-    erb :view_result
-  else
+  @index = params[:question_index_number].to_i
+  @question = @survey.questions[@index]
+
+  if @question == nil
     @surveys = Survey.where(creator_id: params[:user_id])
     @completed_surveys = CompletedSurvey.where(user_id: params[:user_id])
     erb :profile
+  else
+    @categories_array = []
+    @data_array = []
+    @question.answers.each do |answer|
+      if answer != nil
+        @categories_array << answer.content
+      end
+    end
+
+    i = 0
+    @question.answers.each do |blah|
+      @data_array << (QuestionAnswer.where(question_id: @question.id).where( answer_id: @question.answers[i].id)).count
+      i += 1
+    end
+
+    erb :view_result
   end
 end
 #----------- SURVEY -----------
