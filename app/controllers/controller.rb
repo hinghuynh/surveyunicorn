@@ -69,6 +69,14 @@ end
 get '/user/:user_id/survey/:survey_id/results' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
+  @question = Survey.questions.first
+  erb :survey_result
+end
+
+get '/user/:user_id/survey/:survey_id/question/:question_index_number/results' do
+  @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
+  @question = Survey.questions[params[:question_index_number]]
   erb :survey_result
 end
 #----------- SURVEY -----------
