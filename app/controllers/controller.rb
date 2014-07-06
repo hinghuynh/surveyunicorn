@@ -54,7 +54,7 @@ end
 get '/user/:user_id/survey_list' do
   @user = current_user
   @surveys = Survey.all
-
+  @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
   erb :survey_list
 end
 
@@ -139,9 +139,9 @@ post '/user/:user_id/survey/:survey_id/save' do
   counter = 0
   survey = Survey.find_by(id: params[:survey_id])
   puts "these are the params #{params}"
-  until params[:'#{counter}'] == nil
-    UserAnswer.create(answer_id: params[:'#{counter}'], user_id: params[:user_id])
-    QuestionAnswer.create(answer_id: params[:'#{counter}'], question_id: survey.questions[counter].id)
+  until params[:"#{counter}"] == nil
+    UserAnswer.create(answer_id: params[:"#{counter}"], user_id: params[:user_id])
+    QuestionAnswer.create(answer_id: params[:"#{counter}"], question_id: survey.questions[counter].id)
     counter += 1
   end
 
