@@ -3,6 +3,8 @@ get '/' do
     @user = current_user
     @surveys = Survey.all
     @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
+    puts @surveys
+    puts @uncompleted_surveys
     erb :survey_list
   else
     erb :index
