@@ -56,15 +56,21 @@ $('[name="log_in"]').submit(function(event) {
     event.preventDefault();
     console.log($(':input')[0]);
     console.log("button click");
-    $.ajax({
+    var request = $.ajax({
         url: '/login',
         type: 'POST',
         dataType: 'string',
         data: $('form').serialize(),
-    }).fail(function(response){
+    });
+    request.done(function(response) {
+            window.location.replace(response.responseText);
+    });
+    request.fail(function(response){
       console.log(response);
       $('#errors').append("<li>" + response.responseText +"</li>");
-});
+});;
+
+
 console.log("after ajax");
 
 });

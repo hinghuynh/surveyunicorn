@@ -28,8 +28,9 @@ $(function() {
             success: (function() {
                 console.log("success");
                 moveOn();
-                $('.fill > form')[0].reset();
+                console.log($('.fill > form')[1])
                 $('.fill > form')[1].reset();
+                $('.fill > form')[2].reset();
             })
         });
     });

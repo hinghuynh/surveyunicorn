@@ -1,7 +1,7 @@
 get '/' do
   if logged_in?
     @user = current_user
-    @surveys = Survey.all
+    @surveys = Survey.where.not(creator_id: @user.id)
     erb :survey_list
   else
     erb :index
@@ -27,6 +27,8 @@ post '/sign_up' do
   erb :survey_list
 end
 
+
+
 post '/login' do
   @user = User.find_by("email = ?", params[:email])
   @surveys = Survey.all
@@ -37,12 +39,20 @@ post '/login' do
     halt 400, "User does not exist"
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
-    erb :survey_list
+    status 200
+    return "/user/#{@user.id}/survey_list"
   else
     puts "ELSE!"
     status 422
     return "Email and Password do not match"
   end
+end
+
+get '/user/:user_id/survey_list' do
+  @user = current_user
+  @surveys = Survey.all
+
+  erb :survey_list
 end
 
 get '/sign_out' do
