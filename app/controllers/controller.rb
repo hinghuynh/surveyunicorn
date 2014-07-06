@@ -25,6 +25,7 @@ post '/sign_up' do
   @user.password = params[:password]
   @user.save!
   session[:user_id] = @user.id
+  @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
   erb :survey_list
 end
 
