@@ -15,7 +15,7 @@
  			  <% end %>
 		<% end %>
 </center>
-<br><br><br>
+<br>
 
 	 <form class="form-horizontal" action= "/user/<%=@user.id%>/survey/<%=@survey.id%>/results" method="get">
 	    <div class="control-group">
@@ -24,14 +24,15 @@
 	      </div>
 	    </div>
 	  </form>
-<br><br><br>
+<br>
 
-	 <form class="form-horizontal" action="/" method="get">
+	 <form class="form-horizontal" action= "/user/<%=@user.id%>/survey/<%=@survey.id%>/upload" method="get">
 	    <div class="control-group">
 	      <div class="controls">
-	        <input type="submit" class="btn btn-large btn-info" value="Go Home">
+	        <input type="submit" id="results" class="btn btn-large btn-info" value="Add an Image to Your Survey">
 	      </div>
 	    </div>
 	  </form>
+<br>
 
 </container>

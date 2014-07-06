@@ -13,11 +13,13 @@ gem 'thin'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
-
+gem 'haml'
 gem 'rake'
 
 gem 'shotgun'
 gem 'bcrypt'
+gem 'carrierwave'
+gem "mini_magick"
 
 group :test do
   gem 'shoulda-matchers'
