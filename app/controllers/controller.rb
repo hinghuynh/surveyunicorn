@@ -41,7 +41,6 @@ post '/login' do
     halt 400, "User does not exist"
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
-    status 200
     return "/user/#{@user.id}/survey_list"
   else
     puts "ELSE!"
