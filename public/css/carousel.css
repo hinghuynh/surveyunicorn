@@ -204,3 +204,7 @@ form[name="sign_up"], form[name="log_in"] {
   vertical-align: top;
   padding: 60px 0;
 }
+
+.answer_display {
+  list-style-type: none;
+}

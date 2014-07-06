@@ -33,6 +33,9 @@ $(function() {
                 $('.fill > form')[0].reset();
                 $('.fill > form')[1].reset();
                 $('.fill > form')[2].reset();
+            }),
+            error: (function() {
+                alert("Please enter a title");
             })
         });
     });
@@ -56,29 +59,48 @@ $(function() {
                 $('.fill > form')[0].reset();
                 $('.fill > form')[1].reset();
                 $('.fill > form')[2].reset();
+            }),
+            error: (function() {
+                alert("Please enter a question and at least one answer");
             })
         });
     });
 
     $('.carousel').on("click", "#second_question", function(event) {
         event.preventDefault();
-        console.log("this is after the click");
         var str = $('#question2').serialize();
-        console.log(str);
         var target = event.target.href;
-        console.log(event.currentTarget.form.action);
         $.ajax({
             url: event.currentTarget.form.action,
             type: 'POST',
             data: str,
             success: (function() {
-                console.log("success");
                 moveOn();
-                console.log($('.fill > form')[1]);
                 $('.fill > form')[0].reset();
                 $('.fill > form')[1].reset();
                 $('.fill > form')[2].reset();
+            }),
+            error: (function() {
+                alert("Please enter a question and at least one answer");
             })
+        });
+    });
+
+    $('.carousel').on("click", "#done", function(event) {
+        event.preventDefault();
+        // var str = $('#question2').serialize();
+        // str += $('#question1').serialize();
+        var target = event.target.href;
+        $.ajax({
+            url: '/done',
+            type: 'POST',
+
+            success: (function() {
+                window.location.href = "http://localhost:9292/";
+            }),
+            error: function(){
+                alert("Your survey needs at least one question!")
+            }
         });
     });
 });

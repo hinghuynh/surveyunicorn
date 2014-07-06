@@ -1,10 +1,12 @@
 get '/' do
+  if Survey.last.empty?
+    Survey.last.destroy!
+  end
+
   if logged_in?
     @user = current_user
     @surveys = Survey.all
     @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
-    puts @surveys
-    puts @user
 
     erb :survey_list
   else
@@ -38,14 +40,11 @@ post '/login' do
   @user = User.find_by("email = ?", params[:email])
   @surveys = Survey.all
   if @user == nil
-    puts "user equals nil!"
-    # status 422
     halt 400, "User does not exist"
   elsif @user.password == params[:password]
     session[:user_id] = @user.id
     return "/user/#{@user.id}/survey_list"
   else
-    puts "ELSE!"
     status 422
     return "Email and Password do not match"
   end
@@ -55,6 +54,7 @@ get '/user/:user_id/survey_list' do
   @user = current_user
   @surveys = Survey.all
 
+    @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
   erb :survey_list
 end
 
@@ -99,28 +99,42 @@ get '/user/:id/create_survey' do
   erb :create_a_survey
 end
 
-# post '/user/:id/create_question' do
-#   @user = User.find(params[:id])
-#   erb :create_question
-# end
-
 post '/user/:user_id/create/survey' do
   @user = current_user
-    @survey = Survey.create(name: params[:survey_title], creator_id: params[:user_id])
-    session[:survey_id] = @survey.id
-    status 200
+    if params[:survey_title].length > 0
+      @survey = Survey.create(name: params[:survey_title], creator_id: params[:user_id])
+      session[:survey_id] = @survey.id
+      status 200
+    else
+      status 422
+    end
   end
 
+post '/done' do
+  if Survey.last.questions.length > 0
+    status 200
+  else
+    status 422
+  end
+end
 
 post '/user/:user_id/create/question' do
   @user = current_user
+  puts "Here is the session"
+  puts session[:survey_id]
   @survey = Survey.find(session[:survey_id])
   puts params
+  if (params[:question_title].length > 0) && (params[:question_answer1] || params[:question_answer2] || params[:question_answer3] || params[:question_answer4]) != ""
+
 question = Question.create(survey_id: session[:survey_id], content: params[:question_title])
     Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
     Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
     Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""
     Answer.create(question_id: question.id, content: params[:question_answer4]) if params[:question_answer4] != ""
+    status 200
+  else
+    status 422
+  end
 
 end
 
