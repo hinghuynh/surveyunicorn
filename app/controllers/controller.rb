@@ -70,15 +70,23 @@ end
 get '/user/:user_id/survey/:survey_id/results' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
-  @question = Survey.questions.first
-  erb :survey_result
+  @question = @survey.questions[0]
+  @index = 0
+  erb :view_result
 end
 
 get '/user/:user_id/survey/:survey_id/question/:question_index_number/results' do
   @user = User.find(params[:user_id])
   @survey = Survey.find(params[:survey_id])
-  @question = Survey.questions[params[:question_index_number]]
-  erb :survey_result
+  @index = params[:question_index_number]
+  @question = @survey.questions[@index.to_i]
+  if @question.content != ""
+    erb :view_result
+  else
+    @surveys = Survey.where(creator_id: params[:user_id])
+    @completed_surveys = CompletedSurvey.where(user_id: params[:user_id])
+    erb :profile
+  end
 end
 #----------- SURVEY -----------
 
