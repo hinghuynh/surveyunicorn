@@ -79,9 +79,10 @@ post '/user/:user_id/create_survey' do
   @user = current_user
   if params[:survey_title] != nil
     @survey = Survey.create(name: params[:survey_title], creator_id: params[:user_id])
+    session[:survey_id] = @survey.id
   end
   if params[:question_title] != nil
-    question = Question.create(survey_id: params[:survey_id], content: params[:question_title])
+    question = Question.create(survey_id: session[:survey_id], content: params[:question_title])
     Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
     Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
     Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""

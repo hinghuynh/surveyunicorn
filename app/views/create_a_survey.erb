@@ -7,9 +7,11 @@
     <ul class="frames">
       <li id='cell'>
         <div class="fill">
+          <form class="form-horizontal" action="/user/<%=@user.id%>/create_survey" method="post">
           <label class="control-label" for="inputTitle">Enter Title</label>
           <input type="text" class="input-xlarge" name="survey_title" placeholder= "Survey Title">
-          <button id = "next_question" type="submit" class="btn btn-large btn-info">Create Survey</button>
+          <input id = "next_question" type="submit" class="btn btn-large btn-info" value = "Create Survey">
+        </form>
         </div>
       </li >
       <li id='cell'>

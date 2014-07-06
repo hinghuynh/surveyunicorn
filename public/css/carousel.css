@@ -170,7 +170,7 @@ img.unicorn {
   width: 60px;
 }
 
-form[name="sign_up"] {
+form[name="sign_up"], form[name="log_in"] {
   display: inline-block;
 }
 
