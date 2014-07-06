@@ -4,6 +4,7 @@
     <ul>
       <% if @surveys %>
       <h2>Created Surveys:</h2>
+      <p>Click on the name of a survey to edit it</p>
         <% @surveys.each do |survey| %>
           <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>/edit"><%= survey.name%></a></li>
           <% end %>
