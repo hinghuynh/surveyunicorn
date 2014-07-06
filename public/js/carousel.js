@@ -14,21 +14,46 @@ $(function() {
 
     };
 
-
-    $('.carousel').on("click", "#next_question", function(event) {
+    $('.carousel').on("click", "#button", function(event) {
+        console.log(event.target.href);
         event.preventDefault();
-        console.log("this is after the click");
-        var str = $('form').serialize();
-        var target = event.target.href;
-        console.log("before ajax call");
+        console.log("this is after the click of title");
+        var str = $('#title').serialize();
+        console.log(str);
+        // var target = event.target.href;
+        console.log(event.currentTarget.form.action);
         $.ajax({
-            url: target,
+            url: event.currentTarget.form.action,
             type: 'POST',
             data: str,
             success: (function() {
                 console.log("success");
                 moveOn();
-                console.log($('.fill > form')[1])
+                console.log($('.fill > form')[1]);
+                $('.fill > form')[0].reset();
+                $('.fill > form')[1].reset();
+                $('.fill > form')[2].reset();
+            })
+        });
+    });
+
+
+    $('.carousel').on("click", "#next_question", function(event) {
+        event.preventDefault();
+        console.log("this is after the click");
+        var str = $('#question').serialize();
+        console.log(str);
+        var target = event.target.href;
+        console.log(event.currentTarget.form.action);
+        $.ajax({
+            url: event.currentTarget.form.action,
+            type: 'POST',
+            data: str,
+            success: (function() {
+                console.log("success");
+                moveOn();
+                console.log($('.fill > form')[1]);
+                $('.fill > form')[0].reset();
                 $('.fill > form')[1].reset();
                 $('.fill > form')[2].reset();
             })
