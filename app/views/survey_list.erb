@@ -4,12 +4,14 @@
 
     <div class = "survery_links">
       <ul>
-        <% if @surveys %>
-          <% @surveys.each do |survey| %>
+        <% if @uncompleted_surveys %>
+        <% @surveys_to_take = @uncompleted_surveys.where.not(id: @user.id) %>
+
+          <% @surveys_to_take.each do |survey| %>
            <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>"><%=survey.name%></a></li>
           <% end %>
           <%else%>
-            <h2>No Surveys Available</h2>
+            <h2>No Surveys Available To Take</h2>
         <% end %>
       </ul>
     </div>

@@ -1,7 +1,10 @@
 get '/' do
   if logged_in?
     @user = current_user
-    @surveys = Survey.where.not(creator_id: @user.id)
+    @surveys = Survey.all
+    @uncompleted_surveys = Survey.uncompleted_surveys(@user.id)
+    puts "HELLO!"
+    puts @uncompleted_surveys
     erb :survey_list
   else
     erb :index
