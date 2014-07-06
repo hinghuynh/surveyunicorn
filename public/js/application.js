@@ -1,77 +1,63 @@
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
-
-function validatePasswordNum(password) {
-    var re = /\d+/;
-    return re.test(password);
-}
-
 $(function() {
-console.log("hello");
-function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-}
 
-function validatePasswordNum(password) {
-    var re = /\d+/;
-    return re.test(password);
-}
-});
-
-$(function() {
-console.log("hello");
-$('[name="sign_up"]').submit(function(event) {
-    console.log($(':input')[0]);
-    console.log("button click");
-    var email = event.target.email.value;
-    var password = event.target.password.value;
-    console.log(password);
-    if (validateEmail(email) === false) {
-        event.preventDefault();
-        $('#errors').append("<li>Must be a valid email address</li>");
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 
-    if (password.length < 8) {
-        event.preventDefault();
-        console.log("after password length if statement");
-        $('#errors').append("<li>Password must be at least 8 characters long</li>");
+    function validatePasswordNum(password) {
+        var re = /\d+/;
+        return re.test(password);
     }
+    $('[name="sign_up"]').submit(function(event) {
+        console.log($(':input')[0]);
+        console.log("button click");
+        var email = event.target.email.value;
+        var password = event.target.password.value;
+        console.log(password);
+        if (validateEmail(email) === false) {
+            event.preventDefault();
+            $('#errors').append("<li>Must be a valid email address</li>");
+        }
 
-    if (password.toLowerCase() === password) {
-        event.preventDefault();
-        $('#errors').append("<li>Password must have at least one capital letter</li>");
-    }
+        if (password.length < 8) {
+            event.preventDefault();
+            console.log("after password length if statement");
+            $('#errors').append("<li>Password must be at least 8 characters long</li>");
+        }
 
-    if (validatePasswordNum(password) === false) {
-        event.preventDefault();
-        $('#errors').append("<li>Password must have at least one numeric value</li>");
-    }
-  });
+        if (password.toLowerCase() === password) {
+            event.preventDefault();
+            $('#errors').append("<li>Password must have at least one capital letter</li>");
+        }
 
-$('[name="log_in"]').submit(function(event) {
-    console.log("Hello, before event handler stopper");
-    event.preventDefault();
-    console.log($(':input')[0]);
-    console.log("button click");
-    var request = $.ajax({
-        url: '/login',
-        type: 'POST',
-        dataType: 'string',
-        data: $('form').serialize(),
+        if (validatePasswordNum(password) === false) {
+            event.preventDefault();
+            $('#errors').append("<li>Password must have at least one numeric value</li>");
+        }
     });
-    request.done(function(response) {
+
+    $('[name="log_in"]').submit(function(event) {
+        console.log("Hello, before event handler stopper");
+        event.preventDefault();
+        console.log($(':input')[0]);
+        console.log("button click");
+        var request = $.ajax({
+            url: '/login',
+            type: 'POST',
+            dataType: 'string',
+            data: $('form').serialize(),
+        });
+        request.done(function(response) {
             window.location.replace(response.responseText);
+        });
+        request.fail(function(response) {
+            console.log(response);
+            $('#errors').append("<li>" + response.responseText + "</li>");
+        });
+
+
+        console.log("after ajax");
+
     });
-    request.fail(function(response){
-      console.log(response);
-      $('#errors').append("<li>" + response.responseText +"</li>");
-});;
-
-
-console.log("after ajax");
-
-});
 });
