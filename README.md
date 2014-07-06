@@ -2,6 +2,8 @@ Marty: if you get the chance can you exmplain the changes you made to the databa
 
 You think you'll make it in tomorrow?
 
+feel free to call or text me (celeen) if you need anything: 512-775-7887
+
 
 Cool deal, martin, thanks. I was just trying to get a better grasp on the context of whatever problem you were having.
 
