@@ -78,11 +78,16 @@ input#next_question {
 }
 
 img.unicorn {
+  padding-top: 10px;
   float: left;
-  -webkit-filter: invert(100%);
+  -webkit-filter: invert(60%);
   width: 128px;
   height: 70px;
 
+}
+
+.p1 {
+   -webkit-filter: invert(60%);
 }
 
 
