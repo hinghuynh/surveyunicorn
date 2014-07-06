@@ -165,6 +165,14 @@ h2.unicorn {
   padding: 20px;
 }
 
+.bottom-middle {
+  text-align: center;
+  padding-top: 40px;
+  margin: auto;
+  line-height: 10px;
+  width:63%;
+  clear:both;
+}
 .top1 {
   width: 70%;
   margin: auto;
