@@ -5,7 +5,7 @@
     <div class = "survery_links">
       <ul>
         <% if @uncompleted_surveys %>
-        <% @surveys_to_take = @uncompleted_surveys.where.not(id: @user.id) %>
+        <% @surveys_to_take = @uncompleted_surveys.where.not(creator_id: @user.id) %>
 
           <% @surveys_to_take.each do |survey| %>
            <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>"><%=survey.name%></a></li>
