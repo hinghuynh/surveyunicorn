@@ -1,3 +1,8 @@
+Marty: if you get the chance can you exmplain the changes you made to the database? I'm a little confused about why question and answers need a join table. The database refactoring means we have to remake all the other pgaes that rely on it, and to do that, I need to understand what's going on there.
+
+You think you'll make it in tomorrow?
+
+
 Cool deal, martin, thanks. I was just trying to get a better grasp on the context of whatever problem you were having.
 
 Hing and I are having fun implementing cool things. Have a great night; we'll see you later.
