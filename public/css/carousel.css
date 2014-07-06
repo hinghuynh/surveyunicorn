@@ -208,3 +208,9 @@ form[name="sign_up"], form[name="log_in"] {
 .answer_display {
   list-style-type: none;
 }
+
+input[type="radio"] {
+  width: 25px;
+  position: relative;
+  top: -4px;
+}

@@ -5,7 +5,7 @@
       <% @survey.questions.each_with_index do |question, i| %>
         <div class="control-group">
           <div class="controls">
-            <%= question.content %>
+            <p><strong><%= question.content %></strong></p>
             <% question.answers.each do |answer| %>
               <li class = "answer_display"><input type="radio" name= <%= i %> value= <%= answer.id %>><%= answer.content %></li>
           <% end %>
