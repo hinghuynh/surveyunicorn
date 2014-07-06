@@ -32,7 +32,6 @@ end
 post '/login' do
   @user = User.find_by("email = ?", params[:email])
   @surveys = Survey.all
-
   if @user == nil
     puts "user equals nil!"
     # status 422
@@ -85,20 +84,23 @@ end
 #   erb :create_question
 # end
 
-post '/user/:user_id/create_survey' do
+post '/user/:user_id/create/survey' do
   @user = current_user
-  if params[:survey_title] != ""
     @survey = Survey.create(name: params[:survey_title], creator_id: params[:user_id])
     session[:survey_id] = @survey.id
+    status 200
   end
-  if params[:question_title] != ""
-    question = Question.create(survey_id: session[:survey_id], content: params[:question_title])
+
+
+post '/user/:user_id/create/question' do
+  @user = current_user
+  @survey = Survey.find(session[:survey_id])
+  puts params
+question = Question.create(survey_id: session[:survey_id], content: params[:question_title])
     Answer.create(question_id: question.id, content: params[:question_answer1]) if params[:question_answer1] != ""
     Answer.create(question_id: question.id, content: params[:question_answer2]) if params[:question_answer2] != ""
     Answer.create(question_id: question.id, content: params[:question_answer3]) if params[:question_answer3] != ""
     Answer.create(question_id: question.id, content: params[:question_answer4]) if params[:question_answer4] != ""
-  end
-    # erb :question_form, layout: false, locals: {user: @user}
 
 end
 
