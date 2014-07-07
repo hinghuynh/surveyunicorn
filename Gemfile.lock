@@ -24,11 +24,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     daemons (1.1.9)
     diff-lcs (1.2.5)
     eventmachine (1.0.3)
@@ -93,7 +88,6 @@ DEPENDENCIES
   activesupport (~> 4.1)
   bcrypt
   capybara
-  carrierwave
   factory_girl
   faker
   nokogiri

@@ -65,6 +65,7 @@ end
 
 get '/user/:user_id/profile' do
   @user = User.find(params[:user_id])
+  params[:user_id]
   @surveys = Survey.where(creator_id: params[:user_id])
   @completed_surveys = CompletedSurvey.where(user_id: params[:user_id])
   erb :profile
@@ -117,6 +118,14 @@ get '/user/:user_id/survey/:survey_id/question/:question_index_number/results' d
 
     erb :view_result
   end
+end
+
+post "/user/:user_id/survey/:survey_id/delete" do
+  @user = current_user
+  Survey.destroy(params[:survey_id])
+  status 200
+  return "/user/#{@user.id}/profile"
+
 end
 #----------- SURVEY -----------
 

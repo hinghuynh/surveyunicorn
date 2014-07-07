@@ -1,14 +1,22 @@
 
+<article class = "cha">
 <div id="results_page" style="width:100; height: 400px;" ></div>
+<% @previous_index = @index -1 %>
 <% @index += 1 %>
+<div class = "brah">
 
-<form class="form-horizontal" action="/user/<%="#{@user.id}"%>/survey/<%="#{@survey.id}"%>/question/<%="#{@index}"%>/results" method="get">
-    <div class="control-group">
-        <div class="controls">
-        <input type="submit" class="btn btn-large btn-info" value="Next Question">
-      </div>
-    </div>
+<form id = "next_last" class="form-horizontal" action="/user/<%="#{@user.id}"%>/survey/<%="#{@survey.id}"%>/question/<%="#{@previous_index}"%>/results" method="get">
+
+        <input type="submit" class="btn btn-large btn-info left" value="Last Question">
+
 </form>
+<form id = "next_last" class="form-horizontal" action="/user/<%="#{@user.id}"%>/survey/<%="#{@survey.id}"%>/question/<%="#{@index}"%>/results" method="get">
+
+        <input type="submit" class="btn btn-large btn-info right" value="Next Question">
+
+</form>
+</div>
+</article>
 <script>
 
 $(function () {
@@ -24,7 +32,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Times Chosen'
+                text: 'Vote Count'
             }
         },
         series: [{

@@ -4,9 +4,11 @@
     <ul>
       <% if @surveys %>
       <h2>Created Surveys:</h2>
-      <p>Click on the name of a survey to edit it</p>
+      <p>Click on the name of a survey to see its results</p>
         <% @surveys.each do |survey| %>
-          <li><a href="/user/<%=@user.id%>/survey/<%= survey.id %>/edit"><%= survey.name%></a></li>
+          <li class = "answer_display">
+          <button id="delete" type="submit" class="btn btn-danger" value = "/user/<%=@user.id%>/survey/<%= survey.id %>/delete">x</button> <a href="/user/<%=@user.id%>/survey/<%= survey.id %>/results"><%= survey.name %></a>
+          </li>
           <% end %>
           <%else%>
             <p>You haven't made any survey!</p>
@@ -17,9 +19,9 @@
       <div class = "completed_survery_links">
     <ul>
       <h2>Completed Surveys:</h2>
-      <% if @completed_surveys.length > 0 %>
+      <% if @completed_surveys.length != 0 %>
         <% @completed_surveys.each do |completed_survey| %>
-          <li><a href="/user/<%=@user.id%>/completed_survey/<%= completed_survey.survey_id %>"><%= completed_survey.survey.name%></a></li>
+          <li class = "answer_display"><a href="/user/<%=@user.id%>/completed_survey/<%= completed_survey.survey_id %>"><%= completed_survey.survey%></a></li>
           <% end %>
           <%else%>
             <p>You haven't filled out any surveys!</p>

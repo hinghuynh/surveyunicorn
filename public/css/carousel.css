@@ -214,3 +214,38 @@ input[type="radio"] {
   position: relative;
   top: -4px;
 }
+
+li.answer_display {
+  width: 35%;
+}
+
+#delete {
+  font-size: .6em;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 0 6px;
+}
+
+.brah {
+  width: 100%;
+  position: relative;
+  top: 2em;
+}
+#next_last {
+  display: inline-block;
+  margin: 0 auto;
+  width: 48%;
+  text-align: center;
+  /*width: 48%;*/
+}
+
+#next_last input {
+  padding: none;
+  margin: 0 auto;
+
+}
+
+#results_page {
+  width: 100%;
+}
+

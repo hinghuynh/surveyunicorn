@@ -53,4 +53,18 @@ $(function() {
             $('#errors').append("<li>" + response.responseText + "</li>");
         });
     });
+    $('#delete').on("click", function(event) {
+        event.preventDefault();
+        var url = event.target.value
+
+        console.log(url)
+        console.log('before ajax')
+        $.ajax({
+            url: url,
+            type: 'POST',
+            success: function(response) {
+                window.location.replace(response);
+            }
+        })
+    });
 });

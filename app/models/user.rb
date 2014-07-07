@@ -1,8 +1,8 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  has_many :surveys_created, class_name: :survey
-  has_many :completed_surveys
+  has_many :surveys_created, class_name: :survey, dependent: :destroy
+  has_many :completed_surveys, dependent: :destroy
   has_many :surveys, through: :completed_surveys
   has_many :user_answers
   has_many :answers, through: :user_answers
