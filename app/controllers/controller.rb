@@ -1,7 +1,9 @@
 get '/' do
+  if Survey.all.count > 0
   if Survey.last.empty?
     Survey.last.destroy!
   end
+end
 
   if logged_in?
     @user = current_user

@@ -81,9 +81,10 @@ img.unicorn {
   padding-top: 10px;
   margin-right: 10px;
   float: left;
-  -webkit-filter: invert(60%);
+  /*-webkit-filter: invert(85%);*/
   width: 128px;
   height: 70px;
+
 
 }
 
@@ -92,7 +93,7 @@ h2.unicorn {
 }
 
 .p1 {
-   -webkit-filter: invert(60%);
+   -webkit-filter: invert(100%);
 }
 
 

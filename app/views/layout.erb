@@ -25,7 +25,7 @@
   <body
     <div class="top1">
       <div class="top-left">
-        <img src="/img/unicorn.png" class="img-responsive unicorn" alt="Responsive image"/>
+        <img src="/img/unicorn2.png" class="img-responsive unicorn" alt="Responsive image"/>
         <h2 class="unicorn"><span class = "rainbow"> SurveyUnicorn</span><span style="font-size:small;">®</span></h2>
       </div>
       <div class="top-right1">
@@ -40,28 +40,28 @@
         <% end %>
       </div>
       <div class="top-right2">
-        <form action="/help" method="get">
+        <form action="/" method="get">
           <input class="btn btn-warning" type="submit" value="Help">
         </form>
       </div>
       <ul class="nav nav-tabs" role="tablist">
         <li><a class="lead" href="/"><strong>Home</strong></a></li>
-        <li><a class="lead text-gray" href="#"><strong>How it Works</strong></a></li>
+        <li><a class="lead text-error" href="#"><strong>How it Works</strong></a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle lead text-gray" data-toggle="dropdown" href="#"><strong>
+          <a class="dropdown-toggle lead text-warning" data-toggle="dropdown" href="#"><strong>
             Examples</strong><span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle lead text-gray" data-toggle="dropdown" href="#"><strong>
+          <a class="dropdown-toggle lead text-success" data-toggle="dropdown" href="#"><strong>
             Survey Services</strong><span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
           </ul>
         </li>
-        <li><a class="lead text-gray" href="#"><strong>Plans & Pricing</strong></a></li>
+        <li><a class="lead text-info" href="#"><strong>Plans & Pricing</strong></a></li>
       </ul>
     </div>
     <%= yield %>
