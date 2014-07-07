@@ -178,12 +178,15 @@ end
 
 get '/user/:user_id/survey/:survey_id' do
   @survey = Survey.find(params[:survey_id])
+  puts @survey
   @user = User.find(params[:user_id])
+  puts @user
   erb :survey
 end
 
 get '/user/:user_id/completed_survey/:survey_id' do
   @user = User.find(params[:user_id])
+  @survey = Survey.find(params[:survey_id])
   erb :view_survey
 end
 

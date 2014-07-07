@@ -96,9 +96,9 @@ $(function() {
             type: 'POST',
 
             success: (function() {
-                window.location.href = "http://localhost:9292/";
+                window.location.href = "/";
             }),
-            error: function(){
+            error: function() {
                 alert("Your survey needs at least one question!")
             }
         });

@@ -231,6 +231,7 @@ li.answer_display {
   width: 100%;
   position: relative;
   top: 2em;
+  margin: 10px;
 }
 #next_last {
   display: inline-block;

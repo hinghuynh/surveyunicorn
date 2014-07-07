@@ -1,0 +1,19 @@
+<div class="hero-unit">
+  <h2 class="text-success"><%= @survey.name %></h1>
+    <br>
+      <% @survey.questions.each_with_index do |question, i| %>
+        <div class="control-group">
+          <div class="controls">
+            <p><strong><%= question.content %></strong></p>
+            <% if @user.answers.where(question_id: question.id).length > 0 %>
+              <% @user.answers.where(question_id: question.id).each do |answer| %>
+                <li class = "answer_display"><%= answer.content %></li>
+              <% end %>
+            <% else %>
+            <li class = "answer_display">You didn't answer this question.</li>
+            <% end %>
+        </div>
+    </div>
+    <% end %>
+
+</div>
